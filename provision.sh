@@ -8,9 +8,8 @@ sudo apt-get install -y openjdk-8-jdk python3-pip maven
 
 
 #Extract distro name
-. /etc/os-release
-DISTRO=$ID
-
+grep -qxF 'ID=ubuntu' /etc/os-release && export DISTRO=ubuntu
+grep -qxF 'ID=debian' /etc/os-release && export DISTRO=debian
 #GRADLE
 if [[ ! -d /opt/gradle ]]
 then
